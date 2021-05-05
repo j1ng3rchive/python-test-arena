@@ -28,7 +28,7 @@ class Operator:
 		return self.fns[self.op_name](*map(lambda v: v.eval() if isinstance(v, Operator) else v, self.vals))
 	
 	def __str__(self):
-		valstr = self.vals[0] if len(self.vals) == 1 else "(" + str(self.vals[0]) + ", " + str(self.vals[1]) + ")"
+		valstr = str(self.vals[0]) if len(self.vals) == 1 else "(" + str(self.vals[0]) + ", " + str(self.vals[1]) + ")"
 		return valstr + " |> " + self.op_name
 
 class Unary(Operator):
